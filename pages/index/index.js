@@ -1,7 +1,5 @@
 const BMap = require('../../libs/bmap-wx.min.js')
 
-const QQMapWX = require('../../libs/qqmap-wx-jssdk.min.js')
-
 const UNPROMPTED = 0
 const UNAUTHORIZED = 1
 const AUTHORIZED = 2
@@ -22,47 +20,47 @@ function Trim(str) {
 }
 
 function CalConvert(date) {
-  var func = function (d) {
+  let func = function (d) {
     function getBit(m, n) {
-      return (m >> n) & 1;
+      return (m >> n) & 1
     }
 
-    var mons = "正二三四五六七八九十冬腊",
-      Cal = [0x41A95, 0xD4A, 0xDA5, 0x20B55, 0x56A, 0x7155B, 0x25D, 0x92D, 0x5192B, 0xA95, 0xB4A, 0x416AA, 0xAD5, 0x90AB5, 0x4BA, 0xA5B, 0x60A57, 0x52B, 0xA93, 0x40E95];
-    var total, m, n, k, isEnd = false, t = d.getYear();
-    if (t < 1900) t += 1900;
-    total = (t - 2001) * 365 + Math.floor((t - 2001) / 4) + [0, 31, 59, 90, 120, 151, 181, 212, 243, 273, 304, 334][d.getMonth()] + d.getDate() - 23;
-    if (d.getYear() % 4 === 0 && d.getMonth() > 1) total++;
+    let mons = "正二三四五六七八九十冬腊",
+      Cal = [0x41A95, 0xD4A, 0xDA5, 0x20B55, 0x56A, 0x7155B, 0x25D, 0x92D, 0x5192B, 0xA95, 0xB4A, 0x416AA, 0xAD5, 0x90AB5, 0x4BA, 0xA5B, 0x60A57, 0x52B, 0xA93, 0x40E95]
+    let total, m, n, k, isEnd = false, t = d.getYear()
+    if (t < 1900) t += 1900
+    total = (t - 2001) * 365 + Math.floor((t - 2001) / 4) + [0, 31, 59, 90, 120, 151, 181, 212, 243, 273, 304, 334][d.getMonth()] + d.getDate() - 23
+    if (d.getYear() % 4 === 0 && d.getMonth() > 1) total++
     for (m = 0; m < 1000; m++) {
       k = (Cal[m] < 0xfff) ? 11 : 12;
       for (n = k; n >= 0; n--) {
         if (total <= 29 + getBit(Cal[m], n)) {
-          isEnd = true;
-          break;
+          isEnd = true
+          break
         }
-        total = total - 29 - getBit(Cal[m], n);
+        total = total - 29 - getBit(Cal[m], n)
       }
-      if (isEnd) break;
+      if (isEnd) break
     }
-    var cMonth = k - n + 1;
+    let cMonth = k - n + 1
     if (k === 12) {
       if (cMonth === Math.floor(Cal[m] / 0x10000) + 1)
-        cMonth = 1 - cMonth;
+        cMonth = 1 - cMonth
       if (cMonth > Math.floor(Cal[m] / 0x10000) + 1)
-        cMonth--;
+        cMonth--
     }
-    t = "";
+    t = ""
     if (cMonth < 1) {
-      t += "闰";
-      t += mons.charAt(-cMonth - 1);
-    } else t += mons.charAt(cMonth - 1);
-    t += "月";
-    t += (total < 11) ? "初" : ((total < 20) ? "十" : ((total < 30) ? "廿" : "卅"));
-    if (total % 10 !== 0 || total === 10) t += "一二三四五六七八九十".charAt((total - 1) % 10);
-    console.log(t);
-    return t;
-  };
-  return func(date);
+      t += "闰"
+      t += mons.charAt(-cMonth - 1)
+    } else t += mons.charAt(cMonth - 1)
+    t += "月"
+    t += (total < 11) ? "初" : ((total < 20) ? "十" : ((total < 30) ? "廿" : "卅"))
+    if (total % 10 !== 0 || total === 10) t += "一二三四五六七八九十".charAt((total - 1) % 10)
+    console.log(t)
+    return t
+  }
+  return func(date)
 }
 
 Page({
@@ -81,10 +79,6 @@ Page({
     locationAuthType: UNPROMPTED
   },
   onLoad: function () {
-    this.qqmapsdk = new QQMapWX({
-      key: 'EAXBZ-33R3X-AA64F-7FIPQ-BY27J-5UF5B'
-    })
-
     wx.getSetting({
       success: res => {
         let auth = res.authSetting['scope.userLocation']
