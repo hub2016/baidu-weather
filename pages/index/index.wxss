@@ -1,0 +1,137 @@
+view{
+  font-size: 36rpx;
+  line-height: 50rpx;
+}
+
+.weather-wrapper{
+  position: relative;
+  padding-top: 20rpx;
+  padding-bottom: 50rpx;
+  background-image: -webkit-gradient(linear, 0 top, 0 bottom, from(#69b8f0), to(#0e7fdf));
+  color: #FFF;
+}
+
+.location-wrapper{
+  margin-bottom: 10rpx;
+  color: rgba(0, 0, 0, 0.5)
+}
+
+.location{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: rgba(255,255,255,.8);
+}
+
+.location-tips{
+  margin-top:10rpx;
+  text-align: center;
+  color: rgba(255,255,255,.8);
+}
+
+.temp {
+  text-align:center;
+  font-size:150rpx;
+  line-height:210rpx;
+  opacity:0.8;
+}
+
+.pm25-wrapper {
+  text-align: center;
+  padding: 20rpx 0;
+}
+
+.pm25{
+  display: inline-block;
+  white-space: nowrap;
+  padding: 0 21rpx;
+  border-radius: 25rpx;
+}
+
+.weather {
+  text-align: center;
+  opacity: 0.65;
+}
+
+.temp-text {
+  flex-grow: 1;
+  padding-right: 30rpx;
+  text-align: right;
+}
+
+.timetips {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 40rpx;
+  margin-bottom: 45rpx;
+}
+
+.timetips-icon {
+  margin-right: 10rpx;
+  width: 36rpx;
+  height: 28rpx;
+}
+
+.timetips-text {
+  opacity: 0.5;
+}
+
+.forecast-list,.index-list {
+    display:flex;
+}
+
+.forecast-item,.index-item {
+    display:flex;
+    width: 250rpx;
+    flex-shrink: 0;
+    flex-direction:column;
+    align-items:center;
+    margin-bottom: 20rpx;
+}
+
+.forecast-time {
+  margin-bottom: 30rpx;
+}
+
+.forecast-time,.forecast-week {
+  color: rgba(0, 0, 0, 0.5);
+}
+
+.forecast-icons{
+  display: flex;
+}
+
+.forecast-icon {
+  display: flex;
+  margin: 0 10rpx 20rpx;
+  width: 60rpx;
+  height: 60rpx;
+}
+
+.forecast-weather{
+  margin-bottom: 30rpx;
+}
+
+.forecast-weather,.forecast-temp {
+  color: rgba(0, 0, 0, 0.5);
+}
+
+.index-item{
+  background-color: #64c724;
+  padding: 40rpx 0;
+  margin-bottom: 0;
+}
+
+.index-item:nth-child(odd){
+  background-color: #80c3f7;
+}
+
+.index-title{
+  font-weight: bold;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.index-desc{
+  color: rgba(255, 255, 255, 0.9);
+}
