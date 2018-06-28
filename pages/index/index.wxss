@@ -29,16 +29,23 @@ view{
   color: rgba(255,255,255,.8);
 }
 
+.temp-flex{
+  display: flex;
+  padding-top: 20rpx;
+  justify-content: space-around;
+  align-items: flex-start;
+}
+
 .temp {
   text-align:center;
-  font-size:150rpx;
-  line-height:210rpx;
+  font-size:130rpx;
+  line-height:130rpx;
   opacity:0.8;
 }
 
 .pm25-wrapper {
   text-align: center;
-  padding: 20rpx 0;
+  padding-top: 20rpx;
 }
 
 .pm25{
@@ -117,21 +124,47 @@ view{
   color: rgba(0, 0, 0, 0.5);
 }
 
+.index-list{
+  background-color: #daedff;
+  padding-bottom: 10rpx;
+}
+
+.index-list:nth-child(odd){
+  background-color: #FFF;
+}
+
 .index-item{
-  background-color: #64c724;
-  padding: 40rpx 0;
+  padding: 30rpx 0;
   margin-bottom: 0;
 }
 
-.index-item:nth-child(odd){
-  background-color: #80c3f7;
+.index-icon{
+  width: 160rpx;
+  height: 160rpx;
+  margin-bottom: 16rpx;
 }
 
-.index-title{
+.index-tit{
   font-weight: bold;
-  color: rgba(255, 255, 255, 0.8);
+  color: #187db6;
+}
+
+.index-zs{
+  font-size: 40rpx;
+  color: #187db6;
+  padding: 24rpx 0 12rpx;
 }
 
 .index-desc{
-  color: rgba(255, 255, 255, 0.9);
+  color: #818181;
+}
+
+.index-about{
+  padding: 10rpx 20rpx;
+}
+
+.bd-haokan{
+  display: flex;
+  width: 750rpx;
+  height: 214rpx;
 }

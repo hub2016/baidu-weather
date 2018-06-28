@@ -36,6 +36,12 @@
 					"name": "dev start on second page",
 					"pathName": "pages/list/list",
 					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "模拟更新",
+					"pathName": "pages/index/index",
+					"query": ""
 				}
 			]
 		}

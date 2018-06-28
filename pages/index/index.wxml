@@ -5,17 +5,22 @@
     <view class="location">
       <view class="location-text">{{currentCity}}</view>
     </view>
-    <!-- 0: 未弹窗， 1: 已拒绝， 2: 已同意 -->
     <view wx:if="{{locationAuthType===0}}" class="location-tips">点击获取当前位置</view>
     <view wx:if="{{locationAuthType===1}}" class="location-tips">点击开启位置权限</view>
     <view wx:if="{{locationAuthType===2}}" class="location-tips"></view>
   </view>
-  <view class="temp">{{temp}}</view>
-  <view class="weather">{{temperature}}</view>
-  <view class="weather">{{weatherDesc}}</view>
-  <view class="weather">{{wind}}</view>
-  <view class="pm25-wrapper">
-    <view class="pm25" style='background-color:{{aqiBg}}'>{{pm25}}</view>
+  <view class="temp-flex">
+    <view>
+      <view class="temp">{{temp}}</view>
+      <view class="weather">{{weatherDesc}}</view>
+    </view>
+    <view>
+      <view class="weather">{{temperature}}</view>
+      <view class="weather">{{wind}}</view>
+      <view class="pm25-wrapper">
+        <view class="pm25" style='background-color:{{aqiBg}}'>{{pm25}}</view>
+      </view>
+    </view>
   </view>
 </view>
 
@@ -35,11 +40,14 @@
     <view class='forecast-temp'>{{item.temperature}}</view>
   </view>
 </view>
-<scroll-view scroll-x>
-  <view class='index-list'>
-  <view class="index-item" wx:for="{{indexList}}" wx:key="id">
-    <view class='index-title'>{{item.tipt}}</view>
-    <view class='index-desc'>{{item.zs}}</view>
+<view class='index-list' wx:for="{{indexList}}" wx:key="id">
+  <view class="index-item">
+    <image class='index-icon' src='/images/index0{{index}}.png'></image>
+    <view class='index-tit'>{{item.tipt}}</view>
   </view>
+  <view class="index-about">
+    <view class='index-zs'>{{item.zs}}</view>
+    <view class='index-desc'>{{item.des}}</view>
   </view>
-</scroll-view>
+</view>
+<image class="bd-haokan" src="/images/hb.jpg"></image>
