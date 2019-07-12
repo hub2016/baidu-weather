@@ -11,6 +11,8 @@
 	"libVersion": "1.9.93",
 	"appid": "wx14dc0fb99ada2dad",
 	"projectname": "%E6%9C%AC%E5%9C%B0%E5%A4%A9%E6%B0%94",
+	"simulatorType": "wechat",
+	"simulatorPluginLibVersion": {},
 	"condition": {
 		"search": {
 			"current": -1,
@@ -34,13 +36,13 @@
 				{
 					"id": 0,
 					"name": "dev start on second page",
-					"pathName": "pages/list/list",
+					"pathName": "pages/calendar/index",
 					"query": ""
 				},
 				{
 					"id": -1,
 					"name": "模拟更新",
-					"pathName": "pages/index/index",
+					"pathName": "pages/weather/index",
 					"query": ""
 				}
 			]

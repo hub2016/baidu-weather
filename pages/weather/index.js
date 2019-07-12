@@ -56,7 +56,7 @@ function CalConvert(date) {
     } else t += mons.charAt(cMonth - 1)
     t += "月"
     t += (total < 11) ? "初" : ((total < 20) ? "十" : ((total < 30) ? "廿" : "卅"))
-    if (total % 10 !== 0 || total === 10) t += "一二三四五六七八九十".charAt((total - 1) % 10)
+    t += "一二三四五六七八九十".charAt((total - 1) % 10)
     return t
   }
   return func(date)
@@ -127,18 +127,23 @@ Page({
   onShareAppMessage: function () {
     return {
       title: '实时及未来三天天气预测',
-      path: '/pages/index/index'
+      path: '/pages/weather/index'
     }
   },
   onTapLocation() {
-    if (this.data.locationAuthType === UNAUTHORIZED)
+    if (this.data.locationAuthType === UNAUTHORIZED){
       wx.openSetting({
-        success: res => {
-          if (res.authSetting['scope.userLocation']) {
-            this.getNow()
-          }
-        }
-      })
+            success: res => {
+                if (res.authSetting['scope.userLocation']) {
+                    this.getNow()
+                }
+            }
+        })
+    } else {
+        wx.switchTab({
+            url: '../calendar/index'
+        })
+    }
   },
   onPullDownRefresh() {
     this.getNow(() => {

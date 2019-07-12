@@ -1,7 +1,7 @@
 <view class="weather-wrapper">
   <view class="location-wrapper" bindtap='onTapLocation'>
     <view class="location-tips">{{date}}</view>
-    <view class="location-tips">{{lunar}}</view>
+    <view class="location-tips">{{lunar}}<view class="location-arr" wx:if="{{lunar.length > 0}}"></view></view>
     <view class="location">
       <view class="location-text">{{currentCity}}</view>
     </view>
@@ -23,7 +23,6 @@
     </view>
   </view>
 </view>
-
 <view class="timetips">
   <image class="timetips-icon" src="/images/time-icon.png"></image>
   <view class="timetips-text">未来三天气预测</view>
@@ -40,6 +39,7 @@
     <view class='forecast-temp'>{{item.temperature}}</view>
   </view>
 </view>
+<!--<ad unit-id="adunit-41853dc41ad7869e" ad-intervals="30"></ad>-->
 <view class='index-list' wx:for="{{indexList}}" wx:key="id">
   <view class="index-item">
     <image class='index-icon' src='/images/index0{{index}}.png'></image>
@@ -50,4 +50,3 @@
     <view class='index-desc'>{{item.des}}</view>
   </view>
 </view>
-<image class="bd-haokan" src="/images/hb.jpg"></image>

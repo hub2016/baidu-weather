@@ -1,0 +1,39 @@
+<view class="calendar-view">
+    <view class="view-item">
+        <view class="icon icon-prev" bindtap="prevMonth"></view>
+        <view class="icon icon-next" bindtap="nextMonth"></view>
+        <view class="head">
+            <picker mode="date" fields="month" value="{{year}}-{{month}}" bindchange="bindDateChange">{{year}}年{{month}}月</picker>
+        </view>
+        <view class="day">{{dayDetail.day}}</view>
+        <view class="date">{{dayDetail.lunar}}</view>
+        <view class="btn" bindtap="returnToday">返回今日</view>
+    </view>
+    <view class="view-item">
+        <view class="head">{{dayDetail.date}}</view>
+        <view class="item">{{dayDetail.lunarYear}}</view>
+        <view class="item">{{dayDetail.lunarDay}}</view>
+        <view class="zodiac" style='border-color:{{dayDetail.zodiacColor}}'>
+            <view class="item" style='color:{{dayDetail.zodiacColor}}'>{{dayDetail.zodiacCn}}</view>
+            <view class="item" style='color:{{dayDetail.zodiacColor}}'>{{dayDetail.zodiacEn}}</view>
+        </view>
+    </view>
+</view>
+<view class="calendar-festival" wx:if="{{dayDetail.festival.length > 1}}">{{dayDetail.festival}}</view>
+<view class="calendar-week">
+    <view wx:for="{{date}}" wx:key="id" class="{{(index === todayIndex) && isTodayWeek ? 'weekMark' : ''}}">{{item}}<view></view></view>
+</view>
+<view class="calendar-body">
+    <view wx:for="{{dateArr}}" wx:key="id" class="{{isToday === item.isToday ? 'nowDay' : ''}}">
+        <view class="date-item {{item.isWeekEnd ? 'date-end' : ''}} {{isClicked === item.dateNum ? 'date-selected' : ''}}" data-date="{{item.dateNum}}" bindtap="showDetail">
+            <view class="date-num">{{item.dateNum}}</view>
+            <view class="date-lunar">{{item.lunar}}</view>
+        </view>
+    </view>
+</view>
+<view class="calendar-poem">
+    <view class="tit">{{monthPoem.title}}</view>
+    <view class="txt">{{monthPoem.poem}}</view>
+    <view class="tip">{{monthPoem.from}}</view>
+</view>
+<!--<ad unit-id="adunit-41853dc41ad7869e" ad-intervals="30"></ad>-->

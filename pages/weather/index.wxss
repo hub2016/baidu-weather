@@ -12,6 +12,7 @@ view{
 }
 
 .location-wrapper{
+  position: relative;
   margin-bottom: 10rpx;
   color: rgba(0, 0, 0, 0.5)
 }
@@ -27,6 +28,38 @@ view{
   margin-top:10rpx;
   text-align: center;
   color: rgba(255,255,255,.8);
+}
+
+.location-arr {
+  position: relative;
+  top: -38rpx;
+  height: 0;
+  line-height: 0;
+  width: 20rpx;
+  display: inline-block;
+  transform: rotate(-45deg);
+}
+
+.location-arr:before {
+  margin: auto;
+  display: block;
+  content: '';
+  width: 0;
+  height: 0;
+  border-width: 20rpx 12rpx;
+  border-style: dashed dashed solid;
+  border-color: transparent transparent #FFF;
+  font-size: 0;
+  line-height: 0;
+}
+
+.location-arr:after {
+  margin: 0 4rpx 0 10rpx;
+  display: block;
+  content: '';
+  width: 6rpx;
+  height: 20rpx;
+  background-color: #FFF;
 }
 
 .temp-flex{
