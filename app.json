@@ -1,7 +1,8 @@
 {
   "pages": [
+    "pages/weather/index",
     "pages/calendar/index",
-    "pages/weather/index"
+    "pages/calculator/index"
   ],
   "tabBar": {
     "color": "#333",
@@ -14,6 +15,10 @@
       {
         "pagePath": "pages/calendar/index",
         "text": "日历"
+      },
+      {
+        "pagePath": "pages/calculator/index",
+        "text": "计算器"
       }
     ],
     "position": "bottom"
@@ -27,8 +32,7 @@
     "backgroundTextStyle": "dark",
     "navigationBarBackgroundColor": "#69b8f0",
     "navigationBarTitleText": "",
-    "navigationBarTextStyle": "black",
-    "enablePullDownRefresh": true
+    "navigationBarTextStyle": "white"
   },
   "sitemapLocation": "sitemap.json"
 }

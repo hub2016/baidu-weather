@@ -29,19 +29,12 @@ const sTermInfo = [0, 21208, 42467, 63836, 85337, 107014, 128867, 150921, 173149
 const solarTerm = ["小寒", "大寒", "立春", "雨水", "惊蛰", "春分", "清明", "谷雨", "立夏", "小满", "芒种", "夏至", "小暑", "大暑", "立秋", "处暑", "白露", "秋分", "寒露", "霜降", "立冬", "小雪", "大雪", "冬至"];
 const mons = "正二三四五六七八九十冬腊";
 //节假日
-const lFtv = ["0101*春节", "0115*元宵节", "0505*端午节", "0707*七夕情人节", "0715*中元节", "0815*中秋节", "0909*重阳节", "1208*腊八节", "1224*小年", "0100*除夕"];
-const sFtv = ["0101*元旦", "0131*作者生日", "0214*情人节", "0308*妇女节", "0312*植树节", "0315*消费者权益日",
-    "0401*愚人节", "0501*劳动节", "0504*青年节", "0512*护士节", "0601 儿童节", "0701*建党节 香港回归纪念",
-    "0801*建军节", "0808*父亲节", "0908*茂生日", "0909*毛泽东逝世纪念", "0910 教师节", "0928*孔子诞辰", "1001*国庆节",
-    "1006*老人节", "1024*联合国日", "1112*孙中山诞辰", "1220*澳门回归纪念", "1225*圣诞节", "1226*毛泽东诞辰"];
+const lFtv = ["0101*春节", "0115*元宵节", "0202*龙抬头", "0505*端午节", "0707*七夕情人节", "0715*中元节", "0815*中秋节", "0909*重阳节", "1208*腊八节", "1223*小年", "1230*除夕"];
+const sFtv = ["0101*元旦", "0131*作者生日", "0214*情人节", "0308*妇女节", "0312*植树节", "0315*消费者权益日", "0401*愚人节", "0501*劳动节", "0504*青年节", "0512*护士节", "0601*儿童节", "0701*建党节 香港回归纪念日", "0801*建军节", "0909*毛泽东逝世纪念日", "0910*教师节", "0928*孔子诞辰", "1001*国庆节", "1024*联合国日 程序员日", "1112*孙中山诞辰", "1220*澳门回归纪念日", "1225*圣诞节", "1226*毛泽东诞辰"];
 const Cal = [0x41A95, 0xD4A, 0xDA5, 0x20B55, 0x56A, 0x7155B, 0x25D, 0x92D, 0x5192B, 0xA95, 0xB4A, 0x416AA, 0xAD5, 0x90AB5, 0x4BA, 0xA5B, 0x60A57, 0x52B, 0xA93, 0x40E95];
 
 const monthTit = ["一", "二", "三", "四", "五", "六", "七", "八", "九", "十", "十一", "十二"];
 const poemData = require('../../data/poems.js');
-
-for (var i = 0; i < 12; i++) {
-    console.log(poemData.poemList[i].length);
-}
 
 //传入 offset 传回干支, 0=甲子
 function cyclical(num) {
@@ -184,8 +177,8 @@ function CalConvert(date) {
         //农历节日 
         for (i in lFtv)
             if (lFtv[i].match(/^(\d{2})(.{2})([/s/*])(.+)$/)) {
-                tmp1 = Number(RegExp.$1) - mm;
-                tmp2 = Number(RegExp.$2) - dd;
+                tmp1 = Number(RegExp.$1) - lDObj.mon;
+                tmp2 = Number(RegExp.$2) - lDObj.day;
                 if (tmp1 === 0 && tmp2 === 0) lunarFestival = RegExp.$4
             }
         //国历节日
@@ -202,7 +195,6 @@ function CalConvert(date) {
             festival += ' ' + lunarFestival;
         }
         festival += ' ';
-        console.log(festival);
 
         let solarTerms = "";
         tmp1 = new Date((31556925974.7 * (yyyy - 1900) + sTermInfo[mm * 2 + 1] * 60000) + Date.UTC(1900, 0, 6, 2, 5));
@@ -245,6 +237,7 @@ Page({
     data: {
         year: 0,
         month: 0,
+        day: 0,
         date: ['日', '一', '二', '三', '四', '五', '六'],
         dateArr: [],
         isToday: 0,
@@ -330,7 +323,7 @@ Page({
             this.setData({
                 isTodayWeek: true,
                 todayIndex: nowWeek,
-                dayDetail: CalConvert(new Date(nowYear, nowMonth - 1, nowDate.getDate()))
+                dayDetail: CalConvert(new Date(nowYear, nowMonth - 1, this.data.day || nowDate.getDate()))
             })
         } else {
             this.setData({
@@ -343,7 +336,7 @@ Page({
         let day = e.detail.value;
         let year = parseInt(day.split('-')[0]);
         let month = parseInt(day.split('-')[1]);
-        let date = new Date().getDate();
+        let date = this.data.day;
         this.setData({
             year: year,
             month: month,
@@ -353,8 +346,12 @@ Page({
         });
         this.dateInit(year, month - 1);
     },
-    onPullDownRefresh() {
-        wx.stopPullDownRefresh()
+    onShareAppMessage: function () {
+        return {
+            title: '日历（含农历）',
+            path: '/pages/calendar/index',
+            imageUrl: '/images/share/calendar.png'
+        }
     },
     showToday(){
         let now = new Date();
@@ -365,6 +362,7 @@ Page({
         this.setData({
             year: year,
             month: month,
+            day: day,
             isClicked: day,
             dayDetail: CalConvert(new Date(year, month - 1, day)),
             isToday: '' + year + month + day,
@@ -375,10 +373,11 @@ Page({
         //上一月
         let year = this.data.month - 2 < 0 ? this.data.year - 1 : this.data.year;
         let month = this.data.month - 2 < 0 ? 11 : this.data.month - 2;
-        let date = new Date().getDate();
+        let date = this.data.day;
         this.setData({
             year: year,
             month: (month + 1),
+            day: date,
             isClicked: date,
             dayDetail: CalConvert(new Date(year, month, date)),
             monthPoem: showPoem(month)
@@ -389,10 +388,11 @@ Page({
         //下一月
         let year = this.data.month > 11 ? this.data.year + 1 : this.data.year;
         let month = this.data.month > 11 ? 0 : this.data.month;
-        let date = new Date().getDate();
+        let date = this.data.day;
         this.setData({
             year: year,
             month: (month + 1),
+            day: date,
             isClicked: date,
             dayDetail: CalConvert(new Date(year, month, date)),
             monthPoem: showPoem(month)
@@ -407,6 +407,7 @@ Page({
         //显示点击日详情
         let day = e.currentTarget.dataset.date;
         this.setData({
+            day: day,
             isClicked: day,
             dayDetail: CalConvert(new Date(this.data.year, this.data.month - 1, day)),
             monthPoem: showPoem(this.data.month - 1)

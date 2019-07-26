@@ -1,0 +1,113 @@
+page {
+    background-color: #000;
+}
+
+.cal-result {
+    padding: 20rpx 40rpx 0;
+}
+
+.cal-result .result {
+    text-align: right;
+    background-color: #c6da9a;
+    -webkit-border-radius: 8rpx;
+    -moz-border-radius: 8rpx;
+    border-radius: 8rpx;
+    padding: 0 20rpx;
+    overflow: hidden;
+}
+
+.cal-result .step {
+    font-size: 36rpx;
+    height: 48rpx;
+    line-height: 48rpx;
+}
+
+.cal-result .current {
+    font-size: 96rpx;
+    height: 120rpx;
+    line-height: 120rpx;
+}
+
+.cal-result .current .op {
+    font-size: 64rpx;
+}
+
+.cal-grid {
+    padding: 20rpx;
+}
+
+.cal-row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.cal-row .num {
+    flex: 1;
+    position: relative;
+}
+
+.cal-row .num:after {
+    content: "";
+    display: block;
+    padding-bottom: 100%;
+}
+
+.cal-row .num text {
+    text-align: center;
+    display: block;
+    position: absolute;
+    left: 10%;
+    top: 10%;
+    width: 80%;
+    height: 80%;
+    line-height: 190%;
+    font-size: 72rpx;
+    color: #FFF;
+    overflow: hidden;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    border-radius: 50%;
+    transition: 0.2s all;
+    -webkit-transition: 0.2s all;
+}
+
+.cal-row .num-sm text {
+    font-size: 60rpx;
+    line-height: 230%;
+}
+
+.cal-row .num .nb {
+    background-color: #333;
+}
+
+.cal-row .num .it {
+    background-color: #AAA;
+    color: #000;
+}
+
+.cal-row .num .op2 {
+    line-height: 180%;
+}
+
+.cal-row .num .op {
+    background-color: #FF9501;
+}
+
+.cal-row .num .op.focus {
+    color: #FF9501;
+    background-color: #FFF;
+}
+
+.cal-row .num .it:active {
+    background-color: rgba(170, 170, 170, .4);
+}
+
+.cal-row .num .nb:active {
+    background-color: rgba(51, 51, 51, .4);
+}
+
+.cal-row .num .op:active {
+    background-color: rgba(255, 149, 1, .4);
+}

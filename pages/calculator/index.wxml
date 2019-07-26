@@ -1,0 +1,79 @@
+<view class="cal-result">
+    <view class="result">
+        <view class="step">{{lastStep}}</view>
+        <view class="current">{{displayValue}}</view>
+    </view>
+</view>
+<view class="cal-grid">
+    <view class="cal-row">
+        <view class="num">
+            <text class="it" bindtap="bindTap" data-key="AC">AC</text>
+        </view>
+        <view class="num">
+            <text class="it" bindtap="bindTap" data-key="C">C</text>
+        </view>
+        <view class="num">
+            <text class="it" bindtap="bindTap" data-key="%">%</text>
+        </view>
+        <view class="num">
+            <text class="op {{operator==='＋' ? 'focus' : ''}}" bindtap="bindTap" data-key="＋">＋</text>
+        </view>
+    </view>
+    <view class="cal-row">
+        <view class="num">
+            <text class="nb" bindtap="bindTap" data-key="7">7</text>
+        </view>
+        <view class="num">
+            <text class="nb" bindtap="bindTap" data-key="8">8</text>
+        </view>
+        <view class="num">
+            <text class="nb" bindtap="bindTap" data-key="9">9</text>
+        </view>
+        <view class="num">
+            <text class="op {{operator==='－' ? 'focus' : ''}}" bindtap="bindTap" data-key="－">－</text>
+        </view>
+    </view>
+    <view class="cal-row">
+        <view class="num">
+            <text class="nb" bindtap="bindTap" data-key="4">4</text>
+        </view>
+        <view class="num">
+            <text class="nb" bindtap="bindTap" data-key="5">5</text>
+        </view>
+        <view class="num">
+            <text class="nb" bindtap="bindTap" data-key="6">6</text>
+        </view>
+        <view class="num">
+            <text class="op op2 {{operator==='×' ? 'focus' : ''}}" bindtap="bindTap" data-key="×">×</text>
+        </view>
+    </view>
+    <view class="cal-row">
+        <view class="num">
+            <text class="nb" bindtap="bindTap" data-key="1">1</text>
+        </view>
+        <view class="num">
+            <text class="nb" bindtap="bindTap" data-key="2">2</text>
+        </view>
+        <view class="num">
+            <text class="nb" bindtap="bindTap" data-key="3">3</text>
+        </view>
+        <view class="num">
+            <text class="op op2 {{operator==='÷' ? 'focus' : ''}}" bindtap="bindTap" data-key="÷">÷</text>
+        </view>
+    </view>
+    <view class="cal-row">
+        <view class="num">
+            <text class="nb" bindtap="bindTap" data-key="0">0</text>
+        </view>
+        <view class="num">
+            <text class="nb" bindtap="bindTap" data-key=".">.</text>
+        </view>
+        <view class="num num-sm">
+            <text class="nb" bindtap="bindTap" data-key="+/-">+/-</text>
+        </view>
+        <view class="num">
+            <text class="op" bindtap="bindTap" data-key="＝">＝</text>
+        </view>
+    </view>
+</view>
+<ad unit-id="adunit-41853dc41ad7869e" ad-intervals="30"></ad>

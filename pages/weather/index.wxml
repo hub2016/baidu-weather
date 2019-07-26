@@ -39,7 +39,7 @@
     <view class='forecast-temp'>{{item.temperature}}</view>
   </view>
 </view>
-<!--<ad unit-id="adunit-41853dc41ad7869e" ad-intervals="30"></ad>-->
+<ad unit-id="adunit-41853dc41ad7869e" ad-intervals="30"></ad>
 <view class='index-list' wx:for="{{indexList}}" wx:key="id">
   <view class="index-item">
     <image class='index-icon' src='/images/index0{{index}}.png'></image>

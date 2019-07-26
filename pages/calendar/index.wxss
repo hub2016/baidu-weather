@@ -1,6 +1,6 @@
 .icon{
     position: absolute;
-    padding-bottom: 260rpx;
+    padding: 100rpx 0 160rpx;
     width: 60rpx;
     height: 60rpx;
 }
@@ -14,16 +14,15 @@
     content: '';
     background: #FFF;
     -webkit-border-radius: 4rpx;
-    -moz-border-radius: 4rpx;
     border-radius: 4rpx;
 }
 
 .icon:before {
-    top: 20rpx;
+    top: 120rpx;
 }
 
 .icon:after {
-    top: 36rpx;
+    top: 136rpx;
 }
 
 .icon-prev{
@@ -91,38 +90,37 @@
     position: relative;
     display: inline-block;
     width: 14.285%;
-    color: #666;
+    color: #333;
     font-size: 40rpx;
     text-align: center;
     vertical-align: middle;
 }
 .date-item{
-    padding: 10rpx 0;
+    padding: 8rpx 0;
     font-weight: 600;
     line-height: 40rpx;
     margin: 0 4rpx 20rpx;
     border: 4rpx solid #FFF;
-    -webkit-border-radius: 10rpx;
-    -moz-border-radius: 10rpx;
-    border-radius: 10rpx;
+    -webkit-border-radius: 8rpx;
+    border-radius: 8rpx;
 }
 
 .nowDay .date-item{
-    border-color: orange;
-    background-color: orange;
+    border-color: #FF5F07;
+    background-color: #FF5F07;
     color: #FFF;
 }
 
 .nowDay .date-item.date-selected{
-    border-color: #C00;
+    border-color: #FF5F07;
 }
 
 .date-end {
-    color: #C00;
+    color: #FF5F07;
 }
 
 .date-selected{
-    border-color: #C00;
+    border-color: #FF5F07;
 }
 
 .date-lunar{
@@ -170,9 +168,8 @@
     padding: 0 20rpx;
     line-height: 60rpx;
     background-color: #64c724;
-    -webkit-border-radius: 15rpx;
-    -moz-border-radius: 15rpx;
-    border-radius: 15rpx;
+    -webkit-border-radius: 8rpx;
+    border-radius: 8rpx;
 }
 
 .view-item .date,
@@ -183,13 +180,12 @@
 .view-item .day{
     font-size: 130rpx;
     line-height: 130rpx;
-    margin-bottom: 2rpx;
-    color: #C00;
+    margin-bottom: 16rpx;
 }
 
 .view-item .item{
     line-height: 60rpx;
-    color: #F0F0F0;
+    color: #FFF;
 }
 
 .view-item .zodiac{
@@ -197,17 +193,15 @@
     padding: 6rpx 0;
     border: 2rpx dashed #FFF;
     -webkit-border-radius: 8rpx;
-    -moz-border-radius: 8rpx;
     border-radius: 8rpx;
 }
 
 .calendar-poem{
     background-color: #F0EFE2;
     overflow: hidden;
-    margin: 20rpx;
+    margin: 20rpx 20rpx 60rpx;
     padding: 20rpx;
     -webkit-border-radius: 8rpx;
-    -moz-border-radius: 8rpx;
     border-radius: 8rpx;
     border: 2rpx solid #C8C7BC;
 }

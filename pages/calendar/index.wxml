@@ -36,4 +36,4 @@
     <view class="txt">{{monthPoem.poem}}</view>
     <view class="tip">{{monthPoem.from}}</view>
 </view>
-<!--<ad unit-id="adunit-41853dc41ad7869e" ad-intervals="30"></ad>-->
+<ad unit-id="adunit-41853dc41ad7869e" ad-intervals="30"></ad>
